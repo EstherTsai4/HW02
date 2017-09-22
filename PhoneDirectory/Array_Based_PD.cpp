@@ -120,9 +120,11 @@ string Phone_Directory::remove_entry(const string& name) // Exercise 1.7: please
 	int index = find(name); //index of the name; -1 if not found
 
 	if (index != -1) {
+		string delName = the_directory[index].get_name();
+		size -= 1;
 		for (int i = index; i < size - 1; i++)
 			the_directory[i] = the_directory[i + 1];
-		return the_directory[index].get_name();//returns the name of the entry
+		return delName;//returns the name of the entry
 	}
 
 	return "";
